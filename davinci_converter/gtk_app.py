@@ -1,6 +1,6 @@
 from gi.repository import Adw
 
-from .constants import APP_ID
+from .options import APP_ID
 from .ui.window import ConverterWindow
 
 

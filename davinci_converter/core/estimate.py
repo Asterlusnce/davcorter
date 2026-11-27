@@ -5,7 +5,7 @@ CRF-based H.264/H.265 are not."""
 from dataclasses import dataclass
 from typing import Optional
 
-from ..utils import pick, q_word
+from ..helpers import pick, q_word
 from .codecs import codec_info
 from .media import MediaInfo
 from .naming import get_audio_quality
@@ -21,7 +21,7 @@ COPIED_AUDIO_MBPS = 0.192                                    # guess when audio 
 
 def output_pixels(resolution: str, info: MediaInfo) -> float:
     """Pixels of the encoded frame. Never upscales (matches scale_filter())."""
-    from ..constants import RESOLUTION_HEIGHTS
+    from ..options import RESOLUTION_HEIGHTS
     w, h = (info.width, info.height) if info.width and info.height else (1920, 1080)
     target = RESOLUTION_HEIGHTS.get(resolution)
     if not target:

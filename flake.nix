@@ -19,7 +19,7 @@
     in
     {
       packages.${system}.default = pkgs.stdenv.mkDerivation {
-        pname = "davinci-converter";
+        pname = "davcorter";
         version = "0.1.0";
 
         src = ./.;
@@ -41,9 +41,18 @@
 
         installPhase = ''
         mkdir -p $out/bin
+        mkdir -p $out/lib/davinci-converter
         mkdir -p $out/share/applications
 
-        cp video-converter.py $out/bin/davinci-converter
+        cp -r davinci_converter $out/lib/davinci-converter/
+
+        cat > $out/bin/davinci-converter <<EOF
+        #!${python}/bin/python3
+        import os, sys
+        sys.path.insert(0, "$out/lib/davinci-converter")
+        from davinci_converter.__main__ import main
+        sys.exit(main())
+        EOF
         chmod +x $out/bin/davinci-converter
 
         cat > $out/share/applications/sh.asterlusnce.davinciconverter.desktop <<EOF

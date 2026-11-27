@@ -3,8 +3,8 @@
 import os
 from dataclasses import replace
 
-from ..constants import RESOLUTION_HEIGHTS
-from ..utils import pick, q_word
+from ..options import RESOLUTION_HEIGHTS
+from ..helpers import pick, q_word
 from .codecs import codec_info
 from .ffmpeg import TOOLS
 from .naming import get_audio_codec_name, get_audio_quality
@@ -15,6 +15,7 @@ CRF_H264 = {"Low": "28", "Medium": "23", "High": "18", "Ultra": "15"}
 CRF_H265 = {"Low": "31", "Medium": "28", "High": "23", "Ultra": "20"}  # x265 CRF runs ~5 higher
 NVENC_PRESET = {"Low": "p3", "Medium": "p5", "High": "p6", "Ultra": "p7"}
 NVENC_CQ = {"Low": "23", "Medium": "19", "High": "15", "Ultra": "12"}
+MJPEG_Q = {"Low": "12", "Medium": "8", "High": "5", "Ultra": "2"}
 
 
 def scale_filter(resolution: str) -> str:
@@ -36,6 +37,8 @@ def video_args(s: ConversionSettings) -> list:
         args += ["-profile:v", ci.profile]
     elif ci.family == "prores":
         args += ["-profile:v", ci.profile, "-vendor", "apl0"]
+    elif ci.family == "mjpeg":
+        args += ["-q:v", pick(MJPEG_Q, q)]
     elif encoder in ("libx264", "libx265"):
         crf = CRF_H264 if encoder == "libx264" else CRF_H265
         args += ["-preset", pick(X26_PRESET, q), "-crf", pick(crf, q)]

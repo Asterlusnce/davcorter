@@ -4,7 +4,7 @@ import os
 import shutil
 from typing import Optional
 
-from .constants import VIDEO_EXTS, AUDIO_EXTS
+from .options import VIDEO_EXTS, AUDIO_EXTS
 
 
 def q_word(quality: str) -> str:

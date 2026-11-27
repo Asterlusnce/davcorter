@@ -1,7 +1,7 @@
 from dataclasses import dataclass
 
-from ..constants import VIDEO_MODES, OUTPUT_TYPES
-from .codecs import C_LB, C_SQ, C_HQ, C_PR422, C_X264, C_X265
+from ..options import VIDEO_MODES, OUTPUT_TYPES
+from .codecs import C_LB, C_SQ, C_HQ, C_PR422, C_MJPEG, C_X264, C_X265
 
 
 @dataclass(frozen=True)
@@ -30,6 +30,8 @@ PRESETS = [
        "Recommended general-purpose editing proxy.", C_LB, "720p"),
     _p("Proxy — DNxHR LB 1080p", "proxy",
        "Sharper proxy for judging focus and detail while editing.", C_LB, "1080p"),
+    _p("Proxy — MJPEG 720p", "proxy",
+       "Compact 720p MJPEG proxy for Resolve Free on Linux.", C_MJPEG, "720p"),
     _p("Proxy — DNxHR SQ 1080p", "proxy",
        "Higher-quality editing intermediate. Noticeably bigger than LB.", C_SQ, "1080p"),
     _p("Master — DNxHR HQ", "master",

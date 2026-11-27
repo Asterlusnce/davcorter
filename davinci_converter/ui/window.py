@@ -8,8 +8,8 @@ from dataclasses import replace
 
 from gi.repository import Adw, Gdk, GLib, Gio, Gtk
 
-from ..config import load_config, save_config
-from ..constants import APP_TITLE, FREE_SPACE_MARGIN
+from ..user_config import load_config, save_config
+from ..options import APP_TITLE, FREE_SPACE_MARGIN
 from ..core.codecs import codec_info
 from ..core.dryrun import build_plan_text
 from ..core.estimate import estimate_total
@@ -24,7 +24,7 @@ from ..core.naming import get_output_path
 from ..core.runner import Runner, write_run_log
 from ..core.settings import ConversionSettings, exists_policy
 from ..core.validation import validate_choices
-from ..utils import format_size, get_free_mb, is_media_file
+from ..helpers import format_size, get_free_mb, is_media_file
 from .queue_page import QueuePage
 from .settings_page import SettingsPage, compare_rows, estimate_text
 from .widgets import (confirm_dialog, esc, run_on_main, show_text_window)

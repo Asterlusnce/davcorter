@@ -1,7 +1,7 @@
 import logging
 import sys
 
-from .app import ConverterApp
+from .gtk_app import ConverterApp
 
 
 def main() -> int:

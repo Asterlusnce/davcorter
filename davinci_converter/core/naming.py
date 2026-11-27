@@ -13,7 +13,7 @@ def get_audio_codec_name(audio_codec: str) -> str:
 
 
 def get_audio_quality(audio_codec: str, quality: str) -> Optional[str]:
-    from ..utils import pick, q_word
+    from ..helpers import pick, q_word
     q = q_word(quality)
     if audio_codec in ("AAC", "MP3"):
         return pick({"Low": "128k", "Medium": "192k", "High": "256k", "Ultra": "320k"}, q)
@@ -27,21 +27,20 @@ def get_output_extension(video_codec: str, output_type: str, audio_codec: str) -
         if audio_codec.startswith("PCM"):
             return "wav"
         return {"FLAC": "flac", "AAC": "m4a", "MP3": "mp3"}.get(audio_codec, "flac")
-    if codec_info(video_codec).family in ("dnxhr", "prores"):
+    if codec_info(video_codec).family in ("dnxhr", "prores", "mjpeg"):
         return "mov"
     return "mp4"
 
 
 def workflow_suffix(s: ConversionSettings) -> str:
-    """original.mp4 -> original_proxy_720p_DNxHR_LB.mov, _master_DNxHR_HQ, _youtube_h264 ..."""
+    """original.mp4 -> original_720p_DNxHR_LB.mov, _DNxHR_HQ.mov, _youtube_h264.mp4 ..."""
     if s.video_mode.startswith("Copy"):
         return "_copy"
     ci = codec_info(s.video_codec)
-    role = ci.name_role
+    parts = []
     if ci.family in ("h264", "h265") and s.preset.startswith("YouTube"):
-        role = "youtube"
-    parts = [role]
-    if s.resolution != "Original" and not (role == "youtube" and s.resolution == "1080p"):
+        parts.append("youtube")
+    if s.resolution != "Original" and not (parts == ["youtube"] and s.resolution == "1080p"):
         parts.append(s.resolution)
     parts.append(ci.name_tag)
     return "_" + "_".join(parts)

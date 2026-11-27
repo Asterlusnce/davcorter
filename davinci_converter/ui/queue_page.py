@@ -7,7 +7,7 @@ from gi.repository import Gtk, Pango
 
 from ..core.jobs import (Job, QUEUED, RUNNING, DONE, FAILED, SKIPPED, CANCELLED,
                          TERMINAL)
-from ..utils import format_time
+from ..helpers import format_time
 from .widgets import esc
 
 STATUS_ICONS = {

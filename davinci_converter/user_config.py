@@ -6,7 +6,7 @@ log = logging.getLogger("davinci-converter")
 
 CONFIG_DIR = os.path.join(
     os.environ.get("XDG_CONFIG_HOME") or os.path.expanduser("~/.config"),
-    "davinci-converter",
+    "davcorter",
 )
 CONFIG_PATH = os.path.join(CONFIG_DIR, "config.json")
 

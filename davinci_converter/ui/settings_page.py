@@ -5,7 +5,7 @@ from dataclasses import replace
 
 from gi.repository import Adw, Gtk, Pango
 
-from ..constants import (VIDEO_MODES, RESOLUTIONS, QUALITIES, AUDIO_CODECS,
+from ..options import (VIDEO_MODES, RESOLUTIONS, QUALITIES, AUDIO_CODECS,
                          SAMPLE_RATES, OUTPUT_TYPES, FILENAME_MODES,
                          EXISTS_OPTIONS, PARALLEL_JOB_OPTIONS, VIDEO_EXTS,
                          AUDIO_EXTS, LARGE_ESTIMATE_GB)
@@ -14,7 +14,7 @@ from ..core.estimate import change_text, estimate_total, SizeEstimate
 from ..core.media import MediaInfo, describe_media
 from ..core.presets import PRESET_NAMES, PRESET_BY_NAME, COMPARE_PRESETS
 from ..core.settings import ConversionSettings
-from ..utils import format_size, format_time, get_file_size_mb
+from ..helpers import format_size, format_time, get_file_size_mb
 from .widgets import (esc, make_combo_row, combo_value, set_combo_value,
                       confirm_dialog)
 

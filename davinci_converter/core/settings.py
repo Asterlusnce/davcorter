@@ -1,7 +1,7 @@
 import dataclasses
 from dataclasses import dataclass, asdict
 
-from ..constants import (VIDEO_MODES, RESOLUTIONS, QUALITIES, AUDIO_CODECS,
+from ..options import (VIDEO_MODES, RESOLUTIONS, QUALITIES, AUDIO_CODECS,
                          SAMPLE_RATES, OUTPUT_TYPES, FILENAME_MODES,
                          EXISTS_OPTIONS)
 from .codecs import CODECS, C_LB

@@ -57,6 +57,12 @@ CODEC_LIST = [
         short_desc="High-quality intermediate. Large files.",
     ),
     CodecInfo(
+        "MJPEG (Proxy)", "mjpeg", "mjpeg", pix_fmt="yuvj420p",
+        quality_mbps={"Low": 12, "Medium": 20, "High": 32, "Ultra": 48},
+        role_label="Proxy", name_role="proxy", name_tag="MJPEG",
+        short_desc="Fast intra-frame JPEG proxy in .mov. Works in Resolve Free on Linux.",
+    ),
+    CodecInfo(
         "H.264 (Software)", "h264", "libx264", pix_fmt="yuv420p",
         quality_mbps={"Low": 2.5, "Medium": 6, "High": 12, "Ultra": 20},
         role_label="Delivery / export", name_role="export", name_tag="h264",
@@ -94,6 +100,7 @@ VIDEO_CODECS = [c.label for c in CODEC_LIST]
 
 C_LB, C_SQ, C_HQ = VIDEO_CODECS[0], VIDEO_CODECS[1], VIDEO_CODECS[2]
 C_PRPROXY, C_PR422 = VIDEO_CODECS[3], VIDEO_CODECS[4]
+C_MJPEG = "MJPEG (Proxy)"
 C_X264, C_X265 = "H.264 (Software)", "H.265 (Software)"
 
 

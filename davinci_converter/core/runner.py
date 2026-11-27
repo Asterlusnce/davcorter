@@ -10,7 +10,7 @@ import time
 from collections import deque
 from typing import Callable, Optional
 
-from ..utils import format_size, get_file_size_mb
+from ..helpers import format_size, get_file_size_mb
 from .ffmpeg_cmd import build_ffmpeg_cmd, fallback_attempts, is_non_gpu_failure
 from .jobs import (Job, JobQueue, QUEUED, RUNNING, DONE, FAILED, CANCELLED,
                    TERMINAL)

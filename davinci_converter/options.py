@@ -1,7 +1,7 @@
 """Static option lists and thresholds shared by core and UI."""
 
-APP_ID = "sh.asterlusnce.davinciconverter"
-APP_TITLE = "DaVinci Converter"
+APP_ID = "sh.asterlusnce.davcorter"
+APP_TITLE = "DavCorter"
 
 VIDEO_MODES = ["Re-encode", "Copy (no re-encode)"]
 RESOLUTIONS = ["Original", "1080p", "720p", "540p", "360p", "240p", "144p"]
