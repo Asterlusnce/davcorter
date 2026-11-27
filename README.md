@@ -57,10 +57,18 @@ These limitations are **known** at this stage.
 Linux:
 
 ```bash
-git clone https://github.com/Biruworld/Davinci-Resolve-Video-Audio-Converter
+git clone https://github.com/Asterlusnce/davcorter.git
 cd Davinci-Resolve-Video-Audio-Converter
 python -m davinci_converter
 ```
+
+Arch Linux:
+```bash
+git clone https://github.com/Asterlusnce/davcorter.git
+cd davcorter
+makepkg -si
+```
+
 NixOS Flake:
 ```bash
 {
