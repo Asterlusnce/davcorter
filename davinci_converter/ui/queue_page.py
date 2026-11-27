@@ -3,7 +3,7 @@
 from dataclasses import dataclass
 from types import SimpleNamespace
 
-from gi.repository import Gtk, Pango
+from gi.repository import Adw, Gtk, Pango
 
 from ..core.jobs import (Job, QUEUED, RUNNING, DONE, FAILED, SKIPPED, CANCELLED,
                          TERMINAL)
@@ -98,7 +98,7 @@ class QueuePage:
     # ---------- rows ----------
 
     def add_job(self, job: Job) -> None:
-        row = Adw.ActionRow() if False else _new_row()
+        row = Adw.ActionRow()
         icon = Gtk.Image()
         row.add_prefix(icon)
         bar = Gtk.ProgressBar(valign=Gtk.Align.CENTER)

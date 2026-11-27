@@ -1,3 +1,5 @@
+import gi
+gi.require_version("Adw", "1")
 from gi.repository import Adw
 
 from .options import APP_ID
