@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=DavCorter
+Comment=Video and audio converter for DaVinci Resolve
+Exec=davcorter
+Icon=davcorter
+Terminal=false
+Type=Application
+Categories=AudioVideo;Video;

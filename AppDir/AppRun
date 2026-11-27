@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+HERE="$(dirname "$(readlink -f "${0}")")"
+export PYTHONPATH="${HERE}/usr/lib/davcorter:${PYTHONPATH:-}"
+exec python3 -m davinci_converter "$@"
