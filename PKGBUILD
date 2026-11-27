@@ -4,7 +4,7 @@ pkgver=0.1.2
 pkgrel=1
 pkgdesc="GTK4/Libadwaita video and audio converter for DaVinci Resolve on Linux"
 arch=('any')
-url="https://github.com/asterlusnce/Davinci-Resolve-Video-Audio-Converter"
+url="https://github.com/asterlusnce/davcorter"
 license=('MIT')
 depends=(
   'python'
@@ -17,7 +17,7 @@ source=("${pkgname}-${pkgver}.tar.gz::${url}/archive/refs/tags/v${pkgver}.tar.gz
 sha256sums=('SKIP')
 
 package() {
-  cd "${srcdir}/Davinci-Resolve-Video-Audio-Converter-${pkgver}"
+  cd "${srcdir}/${pkgname}-${pkgver}"
 
   install -dm755 "${pkgdir}/usr/lib/${pkgname}"
   cp -r davinci_converter "${pkgdir}/usr/lib/${pkgname}/"

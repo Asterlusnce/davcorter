@@ -2,7 +2,7 @@ pkgbase = davcorter
 	pkgdesc = GTK4/Libadwaita video and audio converter for DaVinci Resolve on Linux
 	pkgver = 0.1.2
 	pkgrel = 1
-	url = https://github.com/asterlusnce/Davinci-Resolve-Video-Audio-Converter
+	url = https://github.com/asterlusnce/davcorter
 	arch = any
 	license = MIT
 	depends = python
@@ -10,7 +10,7 @@ pkgbase = davcorter
 	depends = gtk4
 	depends = libadwaita
 	depends = ffmpeg
-	source = davcorter-0.1.2.tar.gz::https://github.com/asterlusnce/Davinci-Resolve-Video-Audio-Converter/archive/refs/tags/v0.1.2.tar.gz
+	source = davcorter-0.1.2.tar.gz::https://github.com/asterlusnce/davcorter/archive/refs/tags/v0.1.2.tar.gz
 	sha256sums = SKIP
 
 pkgname = davcorter
