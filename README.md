@@ -55,10 +55,11 @@ These limitations are **known** at this stage.
 - Make sure to download:
 
 Linux:
+AppImage
 
 ```bash
 git clone https://github.com/Asterlusnce/davcorter.git
-cd Davinci-Resolve-Video-Audio-Converter
+cd davcorter
 python -m davinci_converter
 ```
 
@@ -73,13 +74,12 @@ NixOS Flake:
 ```bash
 {
   inputs = {
-    davinci-converter.url =
-      "github:Biruworld/Davinci-Resolve-Video-Audio-Converter";
+    davcorter.url = "github:asterlusnce/davcorter";
     # ...
   };
 
   outputs = inputs @ {
-    davinci-converter,
+    davcorter,
     ...
   }: {
     nixosConfigurations.my-system = nixpkgs.lib.nixosSystem {
@@ -90,7 +90,7 @@ NixOS Flake:
         # ...
         ({ pkgs, ... }: {
           environment.systemPackages = [
-            davinci-converter.packages.${pkgs.system}.default
+            davcorter.packages.${pkgs.system}.default
           ];
         })
       ];
@@ -101,7 +101,7 @@ NixOS Flake:
 Then:
 ```bash
 environment.systemPackages = [
-  davinci-converter.packages.${pkgs.system}.default
+  davcorter.packages.${pkgs.system}.default
 ];
 ```
 ## Screenshot
