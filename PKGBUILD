@@ -1,6 +1,6 @@
 # Maintainer: asterlusnce
 pkgname=davcorter
-pkgver=0.1.0
+pkgver=0.1.2
 pkgrel=1
 pkgdesc="GTK4/Libadwaita video and audio converter for DaVinci Resolve on Linux"
 arch=('any')

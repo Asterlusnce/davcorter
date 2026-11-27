@@ -20,7 +20,7 @@
     {
       packages.${system}.default = pkgs.stdenv.mkDerivation {
         pname = "davcorter";
-        version = "0.1.0";
+        version = "0.1.2";
 
         src = ./.;
 
